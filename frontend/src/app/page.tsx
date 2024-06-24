@@ -48,7 +48,7 @@ export default function Home() {
   return (
     <div className="flex flex-col w-full h-screen">
     <header className="bg-primary text-primary-foreground py-6 px-4 md:px-6">
-      <h1 className="text-3xl font-bold">Chat with Gemini AI</h1>
+      <h1 className="text-3xl font-bold">Chat with AI</h1>
     </header>
     <main className="flex-1 overflow-auto px-4 md:px-6 pb-20" ref={messagesContainerRef}>
       <div className="space-y-2 flex flex-col mt-4">
