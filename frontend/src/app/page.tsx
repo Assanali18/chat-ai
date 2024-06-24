@@ -15,7 +15,7 @@ interface Message {
 }
 
 export default function Home() {
-  const { messages, sendMessage } = useWebSocket('wss://localhost:5000');
+  const { messages, sendMessage } = useWebSocket('ws://localhost:5000');
   const [prompt, setPrompt] = useState('');
   const [history, setHistory] = useState<Message[]>([]);
   const messagesEndRef = useRef<HTMLDivElement | null>(null);
