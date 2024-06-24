@@ -53,7 +53,7 @@ const useWebSocket = (url: string) => {
 
       webSocket.onclose = () => {
         console.log('WebSocket connection closed');
-        setTimeout(connect, 1000); // Attempt to reconnect
+        setTimeout(connect, 1000); 
       };
     };
 
