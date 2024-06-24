@@ -14,7 +14,7 @@ const useWebSocket = (url: string) => {
     const connect = () => {
       const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
       const webSocketUrl = url.replace(/^ws:/, `${protocol}:`);
-      const webSocket = new WebSocket(webSocketUrl);
+      const webSocket = new WebSocket(url);
       webSocketRef.current = webSocket;
 
       webSocket.onopen = () => {
