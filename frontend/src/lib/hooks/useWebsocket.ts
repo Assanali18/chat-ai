@@ -15,13 +15,17 @@ const useWebSocket = (url: string) => {
       const webSocket = new WebSocket(url);
       webSocketRef.current = webSocket;
 
+      webSocket.onopen = () => {
+        console.log('WebSocket connection opened');
+      };
+
       webSocket.onmessage = (event) => {
         try {
           const data = JSON.parse(event.data);
           if (data.isFinal) {
             setMessages(prevMessages => [
               ...prevMessages,
-              { message: currentMessageRef.current, isUser: false }
+              { message: currentMessageRef.current + data.message, isUser: false }
             ]);
             currentMessageRef.current = '';
           } else {
@@ -45,6 +49,10 @@ const useWebSocket = (url: string) => {
         console.error('WebSocket error:', error);
       };
 
+      webSocket.onclose = () => {
+        console.log('WebSocket connection closed');
+        setTimeout(connect, 1000); // Attempt to reconnect
+      };
     };
 
     connect();
