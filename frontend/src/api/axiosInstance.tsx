@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-    baseURL: "nfac-hw-production-b25c.up.railway.app/",
+    baseURL: "http://nfac-hw-production-b25c.up.railway.app",
 });
 
 axiosInstance.interceptors.request.use(
